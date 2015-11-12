@@ -5,4 +5,24 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
     <color name="lightgray">#DDDDDD</color>
+
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_divider">#d9d9d9</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+
+    <color name="link_color">#05c50f</color>
+
+    <color name="event_item_color">#ababab</color>
+    <color name="notif_item_color">#cdcdcd</color>
+    <color name="default_item_color">#dedede</color>
+
+    <color name="extreme_gray">#333333</color>
+    <color name="very_dark_gray">#ababab</color>
+    <color name="dark_gray">#cdcdcd</color>
+    <color name="light_gray">#dedede</color>
+
 </resources>
