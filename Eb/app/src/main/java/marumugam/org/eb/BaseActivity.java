@@ -80,11 +80,11 @@ public class BaseActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
+       /* if (id == R.id.nav_tags) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_favorites) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_stats) {
 
         } else if (id == R.id.nav_manage) {
 
@@ -92,7 +92,7 @@ public class BaseActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

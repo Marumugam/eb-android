@@ -5,4 +5,19 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="uname">Suriyadeepan Ram</string>
+    <string name="umail">suriyadeepan@acm.org</string>
+
+    <string name="tags">Tags</string>
+    <string name="favorites">Favorites</string>
+    <string name="stats">Statistics</string>
+    <string name="reminders">Reminder</string>
+    <string name="archives">Archive</string>
+
+    <string name="config">Config</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Log out</string>
+    <string name="help">Help</string>
+
 </resources>
