@@ -1,0 +1,5 @@
+design/ebcore.png filter=lfs diff=lfs merge=lfs -text
+design/ebflash01.png filter=lfs diff=lfs merge=lfs -text
+design/ebflash02.png filter=lfs diff=lfs merge=lfs -text
+design/ebgithub.png filter=lfs diff=lfs merge=lfs -text
+design/extras.png filter=lfs diff=lfs merge=lfs -text
