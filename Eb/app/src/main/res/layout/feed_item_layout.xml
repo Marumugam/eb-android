@@ -38,7 +38,7 @@
 
 
 
-    <!-- Release Year -->
+    <!-- Release Year
     <TextView
         android:id="@+id/timestamp"
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
 
-        android:textSize="@dimen/year" />
+        android:textSize="@dimen/year" /> -->
 
     <!-- android:textColor="@color/year" -->
 

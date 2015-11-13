@@ -3,6 +3,7 @@ package marumugam.org.eb;
 import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -13,19 +14,32 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+
+import marumugam.org.eb.sql.DBhelper;
+import marumugam.org.eb.sql.SQLController;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
     public EditText etTitle,etDesc;
+    private SQLController dbController;
+    private ListView listView;
+    private SimpleCursorAdapter adapter;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +66,25 @@ public class BaseActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // initialize dbcontroller
+        dbController = new SQLController(this);
+        dbController.open();
+
+
+        listView = (ListView) findViewById(R.id.feed_list);
+        listView.setEmptyView(findViewById(R.id.empty));
+        // Attach The Data From DataBase Into ListView Using Crusor Adapter
+        cursor = dbController.fetch();
+        String[] from = new String[] { DBhelper.TODO_SUBJECT,
+                DBhelper.TODO_DESC };
+        int[] to = new int[] { R.id.title, R.id.content};
+
+        adapter = new SimpleCursorAdapter(this,
+                R.layout.feed_item_layout, cursor, from, to);
+
+        adapter.notifyDataSetChanged();
+        listView.setAdapter(adapter);
     }
 
     @Override
@@ -138,7 +171,12 @@ public class BaseActivity extends AppCompatActivity
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // insert into db
+                dbController.insert(etTitle.getText().toString(), etDesc.getText().toString());
                 Toast.makeText(BaseActivity.this, "Thou speaketh : " + etTitle.getText().toString(), Toast.LENGTH_SHORT).show();
+                cursor = dbController.fetch();
+                adapter.swapCursor(cursor);
                 dialog.dismiss();
 
             }
@@ -146,5 +184,15 @@ public class BaseActivity extends AppCompatActivity
 
         dialog.show();
     }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d("Resume","onResume()");
+        adapter.notifyDataSetChanged();
+    }
+
 
 }

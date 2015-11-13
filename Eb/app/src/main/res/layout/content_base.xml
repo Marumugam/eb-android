@@ -9,6 +9,18 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior" tools:showIn="@layout/app_bar_base"
     tools:context=".BaseActivity">
 
-    <TextView android:text="Hello World!" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/feed_list"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp" />
+    !>-- android:listSelector="@drawable/list_row_selector" /> -->
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Add Items here" />
 </RelativeLayout>

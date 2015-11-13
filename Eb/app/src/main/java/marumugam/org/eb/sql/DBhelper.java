@@ -7,14 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBhelper extends SQLiteOpenHelper {
 
     // Table Name
-    public static final String TABLE_NAME = "TODOS";
+    public static final String TABLE_NAME = "EbNote";
 
     // Table columns
     public static final String _ID = "_id";
     public static final String TODO_SUBJECT = "subject";
     public static final String TODO_DESC = "description";
     // Database Information
-    static final String DB_NAME = "JAVATECHIG_TODOS.DB";
+    static final String DB_NAME = "EBNOTE.db";
 
     // database version
     static final int DB_VERSION = 1;
