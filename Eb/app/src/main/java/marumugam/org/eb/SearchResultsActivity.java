@@ -3,6 +3,7 @@ package marumugam.org.eb;
 /**
  * Created by jbroni on 12/11/15.
  */
+import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -12,7 +13,7 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 
-public class SearchResultsActivity extends ActionBarActivity {
+public class SearchResultsActivity extends ListActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

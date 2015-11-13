@@ -7,8 +7,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
+
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,11 +20,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.BaseAdapter;
+
 import android.widget.Button;
-import android.widget.CursorAdapter;
+
 import android.widget.EditText;
-import android.widget.ImageView;
+
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -30,6 +32,7 @@ import android.widget.Toast;
 
 import marumugam.org.eb.sql.DBhelper;
 import marumugam.org.eb.sql.SQLController;
+import marumugam.org.eb.tabs.TabsPagerAdapter;
 
 public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,6 +48,15 @@ public class BaseActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+
+        /*TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        TabsPagerAdapter tabsAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(tabsAdapter);
+        tabs.setupWithViewPager(pager);*/
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -126,6 +138,10 @@ public class BaseActivity extends AppCompatActivity
             return true;
         }
 
+        if(id == R.id.action_search){
+            onSearchRequested();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -194,5 +210,13 @@ public class BaseActivity extends AppCompatActivity
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public boolean onSearchRequested() {
 
+        Bundle appData = new Bundle();
+        //appData.putBoolean(SearchResultsActivity.JARGON, true);
+        startSearch(null, false, appData, false);
+        return true;
+
+    }
 }
